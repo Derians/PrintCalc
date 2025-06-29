@@ -19,4 +19,5 @@ env/
 *.db
 *.sqlite
 *.sqlite3
-printcalc_service.log 
+printcalc_service.log
+logs/printcalc.log
