@@ -168,3 +168,11 @@ ul li {
         transform: translateY(0);
     }
 }
+
+.version {
+    display: block;
+    text-align: center;
+    color: #666;
+    margin-top: -1rem;
+    margin-bottom: 2rem;
+}

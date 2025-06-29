@@ -2,6 +2,7 @@ from flask import render_template, request, redirect, url_for, make_response, Fl
 import logging
 from . import db
 from .translations import LANGUAGES
+from .config import VERSION, FULL_VERSION
 
 def get_translation():
     lang = request.cookies.get("lang")
@@ -67,7 +68,8 @@ def register_routes(app):
                              energy_price=energy_price,
                              power_watt=power_watt,
                              t=t,
-                             lang=lang)
+                             lang=lang,
+                             version=VERSION)
 
     @app.route('/settings', methods=['GET', 'POST'])
     def settings():
@@ -106,7 +108,8 @@ def register_routes(app):
                              current_power=current_power,
                              markup=markup,
                              t=t,
-                             lang=lang)
+                             lang=lang,
+                             version=VERSION)
 
     @app.route('/edit_spool/<int:spool_id>', methods=['GET', 'POST'])
     def edit_spool(spool_id):

@@ -13,6 +13,7 @@
 
 
     <h1>{{ t["title"] }}</h1>
+    <small class="version">v{{ version }}</small>
 
     <form method="POST" action="{{ url_for('index') }}">
         <label>{{ t["print_type"] }}:

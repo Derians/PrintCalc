@@ -6,6 +6,7 @@ Web application for calculating 3D printing costs, supporting both FDM and resin
 
 ![License](https://img.shields.io/github/license/yourusername/PrintCalc)
 ![Python](https://img.shields.io/badge/python-3.8+-blue.svg)
+![Version](https://img.shields.io/github/v/tag/yourusername/PrintCalc)
 
 ## Features
 - FDM and resin printing cost calculation
@@ -14,6 +15,7 @@ Web application for calculating 3D printing costs, supporting both FDM and resin
 - Customizable markup multiplier
 - English and Russian interface
 - RESTful API for integration
+- Git-based versioning
 
 ## Screenshots
 (Add your screenshots here)
@@ -189,6 +191,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - Настраиваемый множитель наценки
 - Интерфейс на русском и английском языках
 - REST API для интеграции
+- Версионирование на основе git
 
 ## Требования
 - Python 3.8 или выше
@@ -328,22 +331,4 @@ GET /api/settings
 ```
 
 Обновить настройки:
-```http
-PUT /api/settings
-Content-Type: application/json
-
-{
-    "energy_price": 0.15,
-    "power_watt": 350,
-    "markup_multiplier": 1.5
-}
 ```
-
-### Участие в разработке
-1. Сделайте форк репозитория
-2. Создайте новую ветку
-3. Внесите изменения
-4. Отправьте pull request
-
-## Лицензия
-Проект распространяется под лицензией MIT - подробности в файле LICENSE.

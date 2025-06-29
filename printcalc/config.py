@@ -1,7 +1,9 @@
 from os import environ
+from .version import VERSION, FULL_VERSION
 
 # Application version
-VERSION = '1.0.0'
+VERSION = VERSION  # Short version (X.Y.Z)
+FULL_VERSION = FULL_VERSION  # Full version with git info
 
 # Server settings
 HOST = environ.get('PRINTCALC_HOST', '0.0.0.0')
