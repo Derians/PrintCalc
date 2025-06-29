@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ t["settings"] }} — PrintCalc</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div style="text-align: right; margin-bottom: 1rem;">
+    🌐 <a href="{{ url_for('set_lang', lang_code='ru') }}">Русский</a> | 
+    <a href="{{ url_for('set_lang', lang_code='en') }}">English</a>
+</div>
+
+
+    <h1>{{ t["settings"] }}</h1>
+
+    <div class="settings-block">
+        <h2>➕ {{ t["add_material"] }}</h2>
+        <form method="POST" class="plain-form" action="{{ url_for('settings') }}">
+            <input type="hidden" name="add_spool" value="1">
+            <label>{{ t["material_name"] }}:
+                <input name="name" required>
+            </label>
+            <label>{{ t["material_weight"] }}:
+                <input name="weight" required>
+            </label>
+            <label>{{ t["material_price"] }}:
+                <input name="price" required>
+            </label>
+            <label>{{ t["material_type"] }}:
+                <select name="type">
+                    <option value="filament">{{ t["filament"] }}</option>
+                    <option value="resin">{{ t["resin"] }}</option>
+                </select>
+            </label>
+            <button type="submit">✅ {{ t["add_material"] }}</button>
+        </form>
+    </div>
+
+    <div class="settings-block">
+        <h2>⚡ {{ t["tariff"] }}</h2>
+        <form method="POST" class="plain-form" action="{{ url_for('settings') }}">
+            <input type="hidden" name="update_energy" value="1">
+            <label>€/{{ t["unit_kwh"] }}:
+                <input name="energy_price" value="{{ current_price }}" required>
+            </label>
+            <button type="submit">💾 {{ t["save"] }}</button>
+        </form>
+    </div>
+
+    <div class="settings-block">
+        <h2>🔌 {{ t["power"] }}</h2>
+        <form method="POST" class="plain-form" action="{{ url_for('settings') }}">
+            <input type="hidden" name="update_power" value="1">
+            <label>{{ t["unit_watt"] }}:
+                <input name="power_watt" value="{{ current_power }}" required>
+            </label>
+            <button type="submit">💾 {{ t["save"] }}</button>
+        </form>
+    </div>
+
+    <div class="settings-block">
+		<h2>📈 {{ t["markup_title"] }}</h2>
+		<form method="POST" class="plain-form" action="{{ url_for('settings') }}">
+			<input type="hidden" name="update_markup" value="1">
+			<label>{{ t["markup_label"] }}:
+				<input name="markup_multiplier" value="{{ markup }}" required>
+			</label>
+			<button type="submit">💾 {{ t["save"] }}</button>
+		</form>
+	</div>
+
+
+    <div class="settings-block">
+        <h2>📦 {{ t["materials"] }}</h2>
+        {% if spools %}
+            <ul>
+                {% for s in spools %}
+                    <li>
+                        <div>
+                            {{ s.name }} — {{ s.price }} € / {{ s.weight }} g ({{ t[s.type] }})
+                        </div>
+                        <div class="btn-group">
+                            <form method="GET" action="{{ url_for('edit_spool', spool_id=s.id) }}">
+                                <button type="submit" class="edit-btn">✏ {{ t["edit"] }}</button>
+                            </form>
+                            <form method="POST" action="{{ url_for('delete_spool', spool_id=s.id) }}" onsubmit="return confirm('{{ t["delete"] }} {{ s.name }}?');">
+                                <button type="submit" class="delete-btn">🗑 {{ t["delete"] }}</button>
+                            </form>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>{{ t["no_materials"] }}</p>
+        {% endif %}
+    </div>
+
+    <a href="{{ url_for('index') }}">{{ t["back"] }}</a>
+</body>
+</html>

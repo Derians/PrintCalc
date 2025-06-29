@@ -1,0 +1,14 @@
+[Unit]
+Description=PrintCalc 3D Print Calculator
+After=network.target
+
+[Service]
+User=REPLACE_ME_USER
+WorkingDirectory=REPLACE_ME_DIR
+ExecStart=REPLACE_ME_DIR/venv/bin/python wsgi.py
+Restart=always
+RestartSec=5
+Environment=FLASK_ENV=production
+
+[Install]
+WantedBy=multi-user.target

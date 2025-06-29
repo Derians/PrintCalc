@@ -1,0 +1,47 @@
+[2025-06-29 18:43:10] INFO in _internal: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.14:5000
+[2025-06-29 18:43:10] INFO in _internal: [33mPress CTRL+C to quit[0m
+[2025-06-29 18:43:20] INFO in _internal: 127.0.0.1 - - [29/Jun/2025 18:43:20] "GET / HTTP/1.1" 200 -
+[2025-06-29 18:43:20] INFO in _internal: 127.0.0.1 - - [29/Jun/2025 18:43:20] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2025-06-29 18:43:26] INFO in routes: Calculating cost for spool_id=1, weight=29.0g, time=4.5h
+[2025-06-29 18:43:26] INFO in routes: Calculated cost: 4.01 ˆ
+[2025-06-29 18:43:26] INFO in _internal: 127.0.0.1 - - [29/Jun/2025 18:43:26] "POST / HTTP/1.1" 200 -
+[2025-06-29 18:43:26] INFO in _internal: 127.0.0.1 - - [29/Jun/2025 18:43:26] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2025-06-29 18:43:36] INFO in _internal: 127.0.0.1 - - [29/Jun/2025 18:43:36] "GET /settings HTTP/1.1" 200 -
+[2025-06-29 18:43:36] INFO in _internal: 127.0.0.1 - - [29/Jun/2025 18:43:36] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2025-06-29 18:43:51] INFO in routes: Adding new spool: ööó (1000.0g, 22.0ˆ, type=filament)
+[2025-06-29 18:43:51] INFO in _internal: 127.0.0.1 - - [29/Jun/2025 18:43:51] "[32mPOST /settings HTTP/1.1[0m" 302 -
+[2025-06-29 18:43:51] INFO in _internal: 127.0.0.1 - - [29/Jun/2025 18:43:51] "GET /settings?lang=en HTTP/1.1" 200 -
+[2025-06-29 18:43:52] INFO in _internal: 127.0.0.1 - - [29/Jun/2025 18:43:52] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2025-06-29 18:43:58] INFO in _internal: 127.0.0.1 - - [29/Jun/2025 18:43:58] "GET /edit_spool/8 HTTP/1.1" 200 -
+[2025-06-29 18:43:59] INFO in _internal: 127.0.0.1 - - [29/Jun/2025 18:43:59] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2025-06-29 18:44:03] INFO in _internal: 127.0.0.1 - - [29/Jun/2025 18:44:03] "[32mPOST /edit_spool/8 HTTP/1.1[0m" 302 -
+[2025-06-29 18:44:03] INFO in _internal: 127.0.0.1 - - [29/Jun/2025 18:44:03] "GET /settings?lang=en HTTP/1.1" 200 -
+[2025-06-29 18:44:03] INFO in _internal: 127.0.0.1 - - [29/Jun/2025 18:44:03] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2025-06-29 18:44:09] INFO in _internal: 127.0.0.1 - - [29/Jun/2025 18:44:09] "[32mPOST /delete_spool/8 HTTP/1.1[0m" 302 -
+[2025-06-29 18:44:09] INFO in _internal: 127.0.0.1 - - [29/Jun/2025 18:44:09] "GET /settings?lang=en HTTP/1.1" 200 -
+[2025-06-29 18:44:09] INFO in _internal: 127.0.0.1 - - [29/Jun/2025 18:44:09] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2025-06-29 18:44:18] INFO in routes: Updating power consumption to: 1400.0W
+[2025-06-29 18:44:18] INFO in _internal: 127.0.0.1 - - [29/Jun/2025 18:44:18] "[32mPOST /settings HTTP/1.1[0m" 302 -
+[2025-06-29 18:44:18] INFO in _internal: 127.0.0.1 - - [29/Jun/2025 18:44:18] "GET /settings?lang=en HTTP/1.1" 200 -
+[2025-06-29 18:44:18] INFO in _internal: 127.0.0.1 - - [29/Jun/2025 18:44:18] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2025-06-29 18:44:22] INFO in _internal: 127.0.0.1 - - [29/Jun/2025 18:44:22] "GET / HTTP/1.1" 200 -
+[2025-06-29 18:44:23] INFO in _internal: 127.0.0.1 - - [29/Jun/2025 18:44:23] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2025-06-29 18:44:26] INFO in _internal: 127.0.0.1 - - [29/Jun/2025 18:44:26] "GET /settings HTTP/1.1" 200 -
+[2025-06-29 18:44:26] INFO in _internal: 127.0.0.1 - - [29/Jun/2025 18:44:26] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2025-06-29 18:44:34] INFO in routes: Updating power consumption to: 400.0W
+[2025-06-29 18:44:34] INFO in _internal: 127.0.0.1 - - [29/Jun/2025 18:44:34] "[32mPOST /settings HTTP/1.1[0m" 302 -
+[2025-06-29 18:44:34] INFO in _internal: 127.0.0.1 - - [29/Jun/2025 18:44:34] "GET /settings?lang=en HTTP/1.1" 200 -
+[2025-06-29 18:44:34] INFO in _internal: 127.0.0.1 - - [29/Jun/2025 18:44:34] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2025-06-29 18:44:38] INFO in routes: Setting language to: ru
+[2025-06-29 18:44:38] INFO in _internal: 127.0.0.1 - - [29/Jun/2025 18:44:38] "[32mGET /set_lang/ru HTTP/1.1[0m" 302 -
+[2025-06-29 18:44:39] INFO in _internal: 127.0.0.1 - - [29/Jun/2025 18:44:39] "GET /settings?lang=en HTTP/1.1" 200 -
+[2025-06-29 18:44:39] INFO in _internal: 127.0.0.1 - - [29/Jun/2025 18:44:39] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2025-06-29 18:44:42] INFO in _internal: 127.0.0.1 - - [29/Jun/2025 18:44:42] "GET /edit_spool/4 HTTP/1.1" 200 -
+[2025-06-29 18:44:42] INFO in _internal: 127.0.0.1 - - [29/Jun/2025 18:44:42] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2025-06-29 18:44:45] INFO in _internal: 127.0.0.1 - - [29/Jun/2025 18:44:45] "GET /settings HTTP/1.1" 200 -
+[2025-06-29 18:44:45] INFO in _internal: 127.0.0.1 - - [29/Jun/2025 18:44:45] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2025-06-29 18:44:47] INFO in _internal: 127.0.0.1 - - [29/Jun/2025 18:44:47] "GET / HTTP/1.1" 200 -
+[2025-06-29 18:44:48] INFO in _internal: 127.0.0.1 - - [29/Jun/2025 18:44:48] "[36mGET /static/style.css HTTP/1.1[0m" 304 -

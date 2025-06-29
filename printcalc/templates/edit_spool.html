@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ t["edit"] }} — {{ t["material_name"] }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div style="text-align: right; margin-bottom: 1rem;">
+    🌐 <a href="{{ url_for('set_lang', lang_code='ru') }}">Русский</a> | 
+    <a href="{{ url_for('set_lang', lang_code='en') }}">English</a>
+</div>
+
+
+    <h1>✏ {{ t["edit"] }}: {{ spool.name }}</h1>
+
+    <div class="settings-block">
+        <form method="POST" class="plain-form" action="{{ url_for('edit_spool', spool_id=spool.id) }}">
+            <label>{{ t["material_name"] }}:
+                <input name="name" value="{{ spool.name }}" required>
+            </label>
+            <label>{{ t["material_weight"] }}:
+                <input name="weight" value="{{ spool.weight }}" required>
+            </label>
+            <label>{{ t["material_price"] }}:
+                <input name="price" value="{{ spool.price }}" required>
+            </label>
+            <button type="submit">💾 {{ t["edit"] }}</button>
+        </form>
+    </div>
+
+    <a href="{{ url_for('settings') }}">{{ t["back"] }}</a>
+</body>
+</html>

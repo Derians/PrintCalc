@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ t["title"] }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+	<div style="text-align: right; margin-bottom: 1rem;">
+		🌐 <a href="{{ url_for('set_lang', lang_code='ru') }}">Русский</a> | 
+		<a href="{{ url_for('set_lang', lang_code='en') }}">English</a>
+	</div>
+
+
+    <h1>{{ t["title"] }}</h1>
+
+    <form method="POST" action="{{ url_for('index') }}">
+        <label>{{ t["print_type"] }}:
+            <select name="print_type" id="print_type">
+                <option value="filament">{{ t["filament"] }}</option>
+                <option value="resin">{{ t["resin"] }}</option>
+            </select>
+        </label>
+
+        <label>{{ t["material_name"] }}:
+            <select name="spool" id="spool-select" required>
+                {% for s in spools %}
+                    <option value="{{ s.id }}" data-type="{{ s.type }}">{{ s.name }} ({{ s.price }} € / {{ s.weight }} g)</option>
+                {% endfor %}
+            </select>
+        </label>
+
+		<label>{{ t["material_weight"] }}:
+			<input name="part_weight" placeholder="{{ t['placeholder_weight'] }}" required>
+		</label>
+
+
+		<label>⏱ {{ t["print_time"] }}:
+			<input name="time_hours" placeholder="{{ t['placeholder_time'] }} ({{ t['print_time_hint'] }})">
+		</label>
+
+
+        <button type="submit">{{ t["calc"] }}</button>
+    </form>
+
+    {% if result %}
+        <div id="result" class="result-output">{{ t["cost"] }}: {{ result }}</div>
+    {% endif %}
+
+    <p>🔌 {{ t["power"] }}: {{ power_watt }} {{ t["unit_watt"] }}</p>
+    <p>⚡ {{ t["tariff"] }}: {{ energy_price }} €/{{ t["unit_kwh"] }}</p>
+
+    <a href="{{ url_for('settings') }}">{{ t["settings"] }}</a>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const lang = "{{ lang }}";
+        const typeSelect = document.getElementById("print_type");
+        const spoolSelect = document.getElementById("spool-select");
+
+        if (typeSelect && spoolSelect) {
+            typeSelect.addEventListener("change", () => {
+                const selectedType = typeSelect.value;
+                Array.from(spoolSelect.options).forEach(opt => {
+                    opt.style.display = opt.dataset.type === selectedType ? "block" : "none";
+                });
+                const firstMatch = Array.from(spoolSelect.options).find(opt => opt.dataset.type === selectedType);
+                if (firstMatch) spoolSelect.value = firstMatch.value;
+            });
+            typeSelect.dispatchEvent(new Event("change"));
+        }
+
+        const timeInput = document.querySelector('input[name="time_hours"]');
+        const numberInputs = document.querySelectorAll('input[name="part_weight"], input[name="time_hours"]');
+
+        if (timeInput) {
+            timeInput.addEventListener("input", function () {
+                this.value = this.value.replace(",", ".");
+            });
+        }
+
+        numberInputs.forEach(input => {
+            input.addEventListener("input", () => {
+                const r = document.getElementById("result");
+                if (r && r.style.opacity !== "0") {
+                    r.animate([
+                        { opacity: 1, transform: "scale(1)" },
+                        { opacity: 0, transform: "scale(0.95)" }
+                    ], {
+                        duration: 300,
+                        fill: "forwards",
+                        easing: "ease-out"
+                    });
+                    r.style.opacity = "0";
+                }
+
+                let v = input.value.replace(",", ".");
+                v = v.replace(/[^\d.]/g, "");
+                const parts = v.split(".");
+                if (parts.length > 2) {
+                    v = parts[0] + "." + parts.slice(1).join("");
+                }
+                input.value = v;
+            });
+        });
+
+        const resultEl = document.getElementById("result");
+        if (resultEl) {
+            resultEl.animate([
+                { opacity: 0, transform: "scale(0.7) translateY(20px)" },
+                { opacity: 1, transform: "scale(1.1) translateY(0)" },
+                { opacity: 1, transform: "scale(1)" }
+            ], {
+                duration: 700,
+                easing: "cubic-bezier(0.23, 1, 0.32, 1)",
+                fill: "both"
+            });
+        }
+    });
+    </script>
+</body>
+</html>
