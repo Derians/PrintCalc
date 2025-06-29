@@ -4,9 +4,9 @@
 
 Web application for calculating 3D printing costs, supporting both FDM and resin printing.
 
-![License](https://img.shields.io/github/license/yourusername/PrintCalc)
+![License](https://img.shields.io/github/license/Derians/PrintCalc)
 ![Python](https://img.shields.io/badge/python-3.8+-blue.svg)
-![Version](https://img.shields.io/github/v/tag/yourusername/PrintCalc)
+![Version](https://img.shields.io/github/v/tag/Derians/PrintCalc)
 
 ## Features
 - FDM and resin printing cost calculation
