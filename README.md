@@ -18,17 +18,19 @@ Web application for calculating 3D printing costs, supporting both FDM and resin
 - Git-based versioning
 
 ## Screenshots
-(Add your screenshots here)
+![Main Screen](screenshots/main.png)
+![Settings](screenshots/settings.png)
 
 ## Requirements
 - Python 3.8 or higher
 - Dependencies from requirements.txt
+- Git (for version management)
 
 ## Quick Start
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/PrintCalc.git
+git clone https://github.com/Derians/PrintCalc.git
 cd PrintCalc
 ```
 
@@ -69,6 +71,7 @@ PrintCalc/
 │   ├── config.py     # Configuration
 │   ├── db.py        # Database operations
 │   ├── routes.py    # Route handlers
+│   ├── version.py   # Version management
 │   ├── static/      # Static files (CSS)
 │   └── templates/   # HTML templates
 ├── init_db.py       # Database initialization
@@ -84,8 +87,19 @@ PrintCalc is built using Flask and follows the application factory pattern. Key 
 - `printcalc/config.py`: Configuration settings (database, logging, etc.)
 - `printcalc/db.py`: SQLite database operations
 - `printcalc/routes.py`: Route handlers and business logic
+- `printcalc/version.py`: Version management using git tags
 
 The application uses SQLite for data storage and Waitress as the WSGI server in production.
+
+### Version Management
+
+The application uses git tags for version management. Version format: vX.Y.Z
+
+To create a new version:
+1. Make your changes
+2. Commit the changes
+3. Create a new tag: `git tag -a vX.Y.Z -m "Version description"`
+4. Push changes and tags: `git push && git push --tags`
 
 ### API Reference
 
@@ -101,7 +115,7 @@ Content-Type: application/json
     "spool_id": 1,
     "weight": 15.5,
     "time_hours": 4.0,
-    "print_type": "filament"  // or "resin"
+    "print_type": "filament"  (or "resin")
 }
 ```
 
@@ -193,15 +207,20 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - REST API для интеграции
 - Версионирование на основе git
 
+## Скриншоты
+![Главный экран](screenshots/main.png)
+![Настройки](screenshots/settings.png)
+
 ## Требования
 - Python 3.8 или выше
 - Зависимости из requirements.txt
+- Git (для управления версиями)
 
 ## Быстрый старт
 
 1. Клонируйте репозиторий:
 ```bash
-git clone https://github.com/yourusername/PrintCalc.git
+git clone https://github.com/Derians/PrintCalc.git
 cd PrintCalc
 ```
 
@@ -242,6 +261,7 @@ PrintCalc/
 │   ├── config.py     # Конфигурация
 │   ├── db.py        # Операции с БД
 │   ├── routes.py    # Обработчики маршрутов
+│   ├── version.py   # Управление версиями
 │   ├── static/      # Статические файлы (CSS)
 │   └── templates/   # HTML шаблоны
 ├── init_db.py       # Инициализация БД
@@ -257,8 +277,19 @@ PrintCalc построен на Flask и использует паттерн ф�
 - `printcalc/config.py`: Настройки (база данных, логирование и т.д.)
 - `printcalc/db.py`: Операции с SQLite базой данных
 - `printcalc/routes.py`: Обработчики маршрутов и бизнес-логика
+- `printcalc/version.py`: Управление версиями через git-теги
 
 Приложение использует SQLite для хранения данных и Waitress как WSGI-сервер в продакшене.
+
+### Управление версиями
+
+Приложение использует git-теги для управления версиями. Формат версии: vX.Y.Z
+
+Для создания новой версии:
+1. Внесите изменения
+2. Закоммитьте изменения
+3. Создайте новый тег: `git tag -a vX.Y.Z -m "Описание версии"`
+4. Отправьте изменения и теги: `git push && git push --tags`
 
 ### Справка по API
 
@@ -274,7 +305,7 @@ Content-Type: application/json
     "spool_id": 1,
     "weight": 15.5,
     "time_hours": 4.0,
-    "print_type": "filament"  // или "resin"
+    "print_type": "filament"  (или "resin")
 }
 ```
 
@@ -331,4 +362,22 @@ GET /api/settings
 ```
 
 Обновить настройки:
+```http
+PUT /api/settings
+Content-Type: application/json
+
+{
+    "energy_price": 0.15,
+    "power_watt": 350,
+    "markup_multiplier": 1.5
+}
 ```
+
+### Участие в разработке
+1. Сделайте форк репозитория
+2. Создайте новую ветку
+3. Внесите изменения
+4. Отправьте pull request
+
+## Лицензия
+Проект распространяется под лицензией MIT - подробности в файле LICENSE.
