@@ -56,7 +56,11 @@ python wsgi.py
 install_service_windows.bat  # Run as Administrator
 
 # Production (Linux Service)
-sudo ./install_service.sh
+# Edit the `printcalc.service` file
+Replace `REPLACE_ME_DIR` with the absolute path to your project directory (e.g. `/home/youruser/PrintCalc`).
+
+# Run the service installation:
+sudo bash ./install_service.sh
 ```
 
 Access the calculator at `http://localhost:5000`
@@ -246,7 +250,11 @@ python wsgi.py
 install_service_windows.bat  # Запуск от имени администратора
 
 # Установка как службы Linux
-sudo ./install_service.sh
+# Отредактируйте файл `printcalc.service`
+Замените `REPLACE_ME_DIR` на абсолютный путь к директории вашего проекта (например, `/home/youruser/PrintCalc`).
+
+# Запустите установку службы:
+sudo bash ./install_service.sh
 ```
 
 Калькулятор будет доступен по адресу `http://localhost:5000`
